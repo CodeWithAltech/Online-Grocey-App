@@ -8,7 +8,7 @@ ThemeData lightMode = ThemeData(
   ),
 );
 
-;
+
 
 //theme for dark mode
 ThemeData darkMode = ThemeData(
