@@ -3,7 +3,7 @@ import 'package:online_grocey_app/utils/intro.dart';
 
 void main() {
   runApp(const MyApp());
-}
+}   
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
