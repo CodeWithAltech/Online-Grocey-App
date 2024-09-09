@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:online_grocey_app/Themes/theme.dart';
+import 'package:online_grocey_app/models/cart_model.dart';
+// import 'package:online_grocey_app/models/theme_model.dart';
 import 'package:online_grocey_app/utils/intro.dart';
+import 'package:provider/provider.dart';
+// import 'package:online_grocey_app/utils/login.dart';
 
 void main() {
-  runApp(const MyApp());
-}   
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => CartModel(),
+      child: const MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,12 +23,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Online Gorcey App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const IntroScreen(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Online Gorcey App',
+        theme: lightMode,
+        // darkTheme: darkMode,
+        home: const IntroScreen());
   }
 }
