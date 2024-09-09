@@ -23,10 +23,9 @@ class _HomePageState extends State<HomePage> {
           title: Text(
             'Good Morning',
             style: TextStyle(
-              fontSize: 16,
-              color: Colors.grey[700],
-              fontWeight: FontWeight.w700
-            ),
+                fontSize: 14,
+                color: Colors.grey[700],
+                fontWeight: FontWeight.w700),
           ),
           centerTitle: false,
           actions: [
@@ -68,9 +67,9 @@ class _HomePageState extends State<HomePage> {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.0),
               child: Text(
-                "Welcome to Precious PizzaHuB. ",
+                "Welcome to\n Precious PizzaHuB. ",
                 style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -129,12 +128,23 @@ class _HomePageState extends State<HomePage> {
                       return GroceryItemTile(
                         itemName: value.shopItems[index][0],
                         itemPrice: value.shopItems[index][1],
+                        avl: value.shopItems[index][4],
                         imagePath: value.shopItems[index][2],
                         color: value.shopItems[index][3],
-                        onPressed: () =>
-                            Provider.of<CartModel>(context, listen: false)
-                                .addItemToCart(index),
+                        onPressed: () {
+                          Provider.of<CartModel>(context, listen: false)
+                              .addItemToCart(index);
+                          showDialog(
+                            context: context,
+                            builder: (cxt) {
+                              return AlertDialog(
+                                content: AddCart(),
+                              );
+                            },
+                          );
+                        },
                       );
+                      // Navigator.pop(context);
                     },
                   );
                 },
@@ -144,5 +154,31 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+}
+
+class AddCart extends StatelessWidget {
+  const AddCart({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<CartModel>(builder: (context, value, child) {
+      return ClipRect(
+        child: Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Added to Cart',style: TextStyle(fontWeight: FontWeight.bold),),
+              IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.cancel_outlined),
+              ),
+            ],
+          ),
+        ),
+      );
+    });
   }
 }
