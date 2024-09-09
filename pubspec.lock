@@ -62,14 +62,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_lints:
-    dependency: "direct dev"
-    description:
-      name: flutter_lints
-      sha256: "3f41d009ba7172d5ff9be5f6e6e6abb4300e263aab8866d2a0842ed2a70f8f0c"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -99,14 +91,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
-  lints:
-    dependency: transitive
-    description:
-      name: lints
-      sha256: "976c774dd944a42e83e2467f4cc670daef7eed6295b10b36ae8c85bcbf828235"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.0.0"
   matcher:
     dependency: transitive
     description:
@@ -147,6 +131,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.0"
+  pretty_qr_code:
+    dependency: "direct main"
+    description:
+      name: pretty_qr_code
+      sha256: cbdb4af29da1c1fa21dd76f809646c591320ab9e435d3b0eab867492d43607d5
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.0"
   provider:
     dependency: "direct main"
     description:
@@ -155,6 +147,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.2"
+  qr:
+    dependency: transitive
+    description:
+      name: qr
+      sha256: "5a1d2586170e172b8a8c8470bbbffd5eb0cd38a66c0d77155ea138d3af3a4445"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.2"
   sky_engine:
     dependency: transitive
     description: flutter
