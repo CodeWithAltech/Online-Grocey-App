@@ -12,11 +12,11 @@ class AuthDiv extends StatelessWidget {
   Widget build(BuildContext context) {
     return StreamBuilder<User?>(
       stream: FirebaseAuth.instance.authStateChanges(),
-      builder: (snapshot, context) {
+      builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return LoginAuth();
-        } else {
           return HomeTest();
+        } else {
+          return LoginAuth();
         }
       },
     );
