@@ -31,11 +31,19 @@ class _LoginAuthState extends State<LoginAuth> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBox(height: 50),
+              Image.asset(
+                'lib/images/8.png',
+                width: 150,
+                height: 120,
+              ),
+              const SizedBox(height: 50),
+              //Welcome back, you`ve been missed
               Text(
                 'Welcome Back, Shop with Us',
                 style: TextStyle(
                   color: Colors.grey[800],
-                  fontSize: 16,
+                  fontSize: 20,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -75,8 +83,13 @@ class _LoginAuthState extends State<LoginAuth> {
               const SizedBox(height: 25.0),
               //sign in button
               MyButtonSN(
+                onTap: () async {
+                  await FirebaseAuth.instance.signInWithEmailAndPassword(
+                    email: emailController.text.toString(),
+                    password: paswordController.text.toString(),
+                  );
+                },
                 text: 'LogIn',
-                onTap: signUp,
               ),
             ],
           ),
