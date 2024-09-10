@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:online_grocey_app/Pages/home.dart';
 import 'package:online_grocey_app/components/button_tile.dart';
-import 'package:online_grocey_app/utils/login.dart';
+import 'package:online_grocey_app/services/auth.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});
@@ -57,9 +56,7 @@ class IntroScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (ctx) => LoginWindow(
-                        onTap: () {},
-                      ),
+                      builder: (ctx) => AuthDiv()
                     ),
                   );
                 },

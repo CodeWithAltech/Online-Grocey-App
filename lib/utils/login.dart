@@ -1,13 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:online_grocey_app/Pages/home.dart';
 import 'package:online_grocey_app/components/button_tile.dart';
 import 'package:online_grocey_app/components/image_button.dart';
 import 'package:online_grocey_app/components/text_field.dart';
 // import 'package:online_grocey_app/utils/intro.dart';
 
 class LoginWindow extends StatefulWidget {
-  final Function()? onTap;
-  const LoginWindow({super.key, required this.onTap});
+  void Function()? onTap;
+
+   LoginWindow({super.key,required this.onTap});
 
   @override
   State<LoginWindow> createState() => _LoginWindowState();
@@ -19,32 +20,9 @@ class _LoginWindowState extends State<LoginWindow> {
   final paswordController = TextEditingController();
 
   void signUp() async {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return const Center(
-          child: CircularProgressIndicator(
-            color: Colors.blueAccent,
-          ),
-        );
-      },
-    );
-    //   try {
-    //     await FirebaseAuth.instance.signInWithEmailAndPassword(
-    //       email: emailController.text,
-    //       password: paswordController.text,
-    //     );
-    //   } on FirebaseAuthException catch (e) {
-    //     Navigator.pop(context);
-    //     //Error message
-    //     showError(e.code);
-    //   }
-    Navigator.pop(context);
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (ctx) => const HomePage(),
-      ),
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailController.text.toString(),
+      password: paswordController.text.toString(),
     );
   }
 
@@ -172,7 +150,7 @@ class _LoginWindowState extends State<LoginWindow> {
                     Padding(
                       padding: const EdgeInsets.all(10),
                       child: SquareTile(
-                          imagePath: 'lib/images/go log.png', onTap: () {}),
+                          imagePath: 'lib/images/go log.png', onTap: () => {}),
                     ),
                     const SizedBox(height: 50),
                     SquareTile(
